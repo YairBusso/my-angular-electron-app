@@ -6,14 +6,12 @@ const { log } = require('console');
 let mainWindow
 
 function createWindow() {
-    console.log("yair1  ", width, height);
-    // Calculate window size and position
+    const width = screen.getPrimaryDisplay().workAreaSize.width;
+    const height = screen.getPrimaryDisplay().workAreaSize.height;
     const windowWidth = width * 0.25;
     const windowHeight = height * 0.50;
     const windowX = 0;
     const windowY = height * 0.50;
-    console.log("yair2  ", windowWidth, windowHeight, windowX, windowY);
-
 
     mainWindow = new BrowserWindow({
         width: windowWidth,
@@ -24,7 +22,6 @@ function createWindow() {
             nodeIntegration: true
         }
     })
-    console.log("yair3  ", windowWidth, windowHeight, windowX, windowY);
 
     mainWindow.loadURL(
         url.format({
